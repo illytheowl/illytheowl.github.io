@@ -3,83 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A private daily mood check-in and resource companion." />
-    <title>Daylight — mood companion</title>
+    <meta name="description" content="illytheowl — small, thoughtful digital projects." />
+    <title>illytheowl — projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <header>
-        <a class="brand" href="#today" aria-label="Daylight home"><span class="sun">✦</span> daylight</a>
-        <nav aria-label="Main navigation">
-          <a class="active" href="#today">Today</a>
-          <a href="#history">History</a>
-          <a href="#support">Support</a>
-          <a class="projects-link" href="#projects">Projects <span>⌄</span></a>
-        </nav>
-        <button class="quiet-button" id="privacyButton" type="button">Private on this device</button>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./"><span>✦</span> illytheowl</a>
+        <nav aria-label="Main menu"><a href="#projects">Projects</a><a href="#about">About</a></nav>
       </header>
-
-      <section class="welcome" id="today">
-        <p class="eyebrow" id="dateLabel"></p>
-        <h1>How has your day<br />felt so far?</h1>
-        <p class="lede">A small check-in can make patterns easier to notice. There is no “right” answer.</p>
+      <section class="hero">
+        <p class="eyebrow">Independent projects</p>
+        <h1>Small tools for<br />real life.</h1>
+        <p>A growing collection of thoughtful, private-first digital projects.</p>
       </section>
-
-      <section class="checkin-card" aria-labelledby="checkin-heading">
-        <div class="section-heading"><div><p class="eyebrow">Daily check-in</p><h2 id="checkin-heading">Your mood</h2></div><span class="step">Takes about a minute</span></div>
-        <form id="checkinForm">
-          <fieldset>
-            <legend>What feels closest right now?</legend>
-            <div class="mood-grid">
-              <button class="mood-option" type="button" data-mood="Low" data-score="1"><span>☁</span>Low</button>
-              <button class="mood-option" type="button" data-mood="Tender" data-score="2"><span>◐</span>Tender</button>
-              <button class="mood-option selected" type="button" data-mood="Steady" data-score="3"><span>●</span>Steady</button>
-              <button class="mood-option" type="button" data-mood="Upbeat" data-score="4"><span>☀</span>Upbeat</button>
-              <button class="mood-option" type="button" data-mood="Activated" data-score="5"><span>✺</span>Activated</button>
-            </div>
-          </fieldset>
-          <div class="sliders">
-            <label>Sleep last night <strong id="sleepValue">7 hrs</strong><input id="sleep" type="range" min="0" max="12" value="7" /><span class="range-ends"><i>0</i><i>12+</i></span></label>
-            <label>Energy <strong id="energyValue">5 / 10</strong><input id="energy" type="range" min="1" max="10" value="5" /><span class="range-ends"><i>Low</i><i>High</i></span></label>
+      <section id="projects" aria-labelledby="projects-heading">
+        <div class="section-title"><p class="eyebrow">Projects</p><h2 id="projects-heading">Explore the work</h2></div>
+        <div class="projects-grid">
+          <a class="project-card daylight-card" href="daylight/">
+            <div class="project-icon">✦</div>
+            <p class="project-type">Mood companion</p>
+            <h3>Daylight</h3>
+            <p>A private, gentle place to notice mood patterns, make daily check-ins, and find support.</p>
+            <span>Open Daylight <b>→</b></span>
+          </a>
+          <div class="project-card coming-soon" aria-label="Future project slot">
+            <div class="project-icon">+</div>
+            <p class="project-type">Coming soon</p>
+            <h3>Next project</h3>
+            <p>This space is ready for whatever you build next.</p>
           </div>
-          <label class="notes-label" for="notes">Anything you’d like to remember? <span>optional</span></label>
-          <textarea id="notes" rows="3" placeholder="A few words about today, a trigger, or something that helped..."></textarea>
-          <div class="form-footer"><p id="saveMessage" aria-live="polite"></p><button class="primary-button" type="submit">Save check-in <span>→</span></button></div>
-        </form>
-      </section>
-
-      <section class="insight-grid" id="history">
-        <article class="trend-card">
-          <div class="section-heading"><div><p class="eyebrow">Your recent rhythm</p><h2>Check-in history</h2></div><button class="text-button" id="clearHistory" type="button">Clear data</button></div>
-          <div id="historyEmpty" class="empty-state">Your check-ins will appear here. Try to record how you feel—not how you think you <em>should</em> feel.</div>
-          <div id="historyList" class="history-list" aria-live="polite"></div>
-        </article>
-        <aside class="gentle-note"><span class="note-icon">♡</span><p class="eyebrow">A gentle reminder</p><h2>Patterns are information,<br />not a verdict.</h2><p>Changes in sleep, energy, and mood can be useful to share with your care team. This app cannot diagnose or replace professional care.</p></aside>
-      </section>
-
-      <section class="projects-section" id="projects" aria-labelledby="projects-heading">
-        <div><p class="eyebrow">illytheowl projects</p><h2 id="projects-heading">A small home for thoughtful tools.</h2></div>
-        <a class="project-card" href="#today">
-          <div class="project-mark">✦</div>
-          <div><p class="project-status">Live project</p><h3>Daylight</h3><p>A private mood companion for noticing patterns, making check-ins, and finding support.</p></div>
-          <span class="project-arrow">Open project&nbsp; →</span>
-        </a>
-      </section>
-
-      <section class="support-section" id="support" aria-labelledby="support-heading">
-        <div><p class="eyebrow">When you need more support</p><h2 id="support-heading">Useful places to turn</h2></div>
-        <div class="resource-grid">
-          <a class="resource crisis" href="https://findahelpline.com" target="_blank" rel="noreferrer"><span>✦</span><div><h3>In immediate danger?</h3><p>Call your local emergency number. Find a crisis helpline in your country.</p></div><b>↗</b></a>
-          <a class="resource" href="https://www.dbsalliance.org" target="_blank" rel="noreferrer"><span>◌</span><div><h3>Depression and Bipolar Support Alliance</h3><p>Peer groups, education, and tools for living with a mood disorder.</p></div><b>↗</b></a>
-          <a class="resource" href="https://ibpf.org" target="_blank" rel="noreferrer"><span>⌁</span><div><h3>International Bipolar Foundation</h3><p>Education and a global community for people and families.</p></div><b>↗</b></a>
         </div>
       </section>
+      <section class="about" id="about"><p class="eyebrow">About this space</p><p>Built with care, one useful project at a time.</p></section>
     </main>
-    <dialog id="privacyDialog"><button class="dialog-close" aria-label="Close" type="button">×</button><p class="eyebrow">Your privacy</p><h2>Your entries stay here.</h2><p>Daylight saves check-ins in this browser’s local storage. No account is created and nothing is sent to a server. Clearing browser data or choosing “Clear data” removes the saved entries.</p></dialog>
-    <script src="app.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
